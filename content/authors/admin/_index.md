@@ -18,9 +18,9 @@ organizations:
 role: Associate Professor of Epidemiology
 
 social:
-- icon: envelope
-  icon_pack: fas
-  link: www.gu.se
+#- icon: envelope
+#  icon_pack: fas
+#  link: david.bock@gu.se
 - icon: twitter
   icon_pack: fab
   link: https://twitter.com/DavidBo28287340 
