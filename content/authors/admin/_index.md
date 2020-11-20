@@ -45,4 +45,6 @@ I can be reached by david.bock@gu.se
 
 
 
-{{< icon name="download" pack="fas" >}} Download my {{< staticref "media/CV_200921.pdf" "newtab" >}}CV{{< /staticref >}}.
+ Download my {{< staticref "media/CV_200921.pdf" "newtab" >}}CV{{< /staticref >}}.
+ 
+
