@@ -20,7 +20,7 @@ role: Associate Professor of Epidemiology
 social:
 - icon: envelope
   icon_pack: fas
-  link: /#contact
+  link: www.gu.se
 - icon: twitter
   icon_pack: fab
   link: https://twitter.com/DavidBo28287340 
