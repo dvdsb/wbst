@@ -1,0 +1,99 @@
+---
+title: Some basic approaches to analyze a simple simulated data example
+author: 'David Bock'
+date: '2020-11-16'
+slug: post-2020-11-16
+categories: []
+tags: []
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2020-11-16T07:09:24+01:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+<link href="/rmarkdown-libs/anchor-sections/anchor-sections.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/anchor-sections/anchor-sections.js"></script>
+
+
+<div id="introduction" class="section level2">
+<h2>Introduction</h2>
+<p>In this post I will explore some basic approaches to analyze a simple simulated data example.</p>
+</div>
+<div id="two-sample-continuous-outcome" class="section level2">
+<h2>Two sample continuous outcome</h2>
+<p>A depend variable Y and a indedependent factor X (two levels, A and B).
+I standardize Y to get zero mean and unit standard deviation.</p>
+<pre class="r"><code>DAT &lt;- tibble(N = 60 , 
+              X = rbinom(N, 1, 0.5),
+              Y =  0.5*X + rnorm(N)) %&gt;% 
+        mutate(X = factor(X, labels = c(&quot;A&quot;, &quot;B&quot;)) , 
+               Y = (Y-mean(Y, na.rm=T))/sd(Y, na.rm=T))</code></pre>
+<p>Describe the data (recall that Y has been standardized)</p>
+<pre class="r"><code>DESC &lt;- DAT %&gt;%   group_by(X) %&gt;%
+  summarise( mean = mean(Y, na.rm=T) ,
+             sd = sd(Y, na.rm=T) ,
+             min=min(Y, na.rm=T),
+             max=max(Y, na.rm=T) ,
+             n = n()) %&gt;%
+  kable(digits = 2)
+DESC</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">X</th>
+<th align="right">mean</th>
+<th align="right">sd</th>
+<th align="right">min</th>
+<th align="right">max</th>
+<th align="right">n</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">A</td>
+<td align="right">-0.22</td>
+<td align="right">0.89</td>
+<td align="right">-2.00</td>
+<td align="right">1.46</td>
+<td align="right">34</td>
+</tr>
+<tr class="even">
+<td align="left">B</td>
+<td align="right">0.29</td>
+<td align="right">1.07</td>
+<td align="right">-1.74</td>
+<td align="right">2.24</td>
+<td align="right">26</td>
+</tr>
+</tbody>
+</table>
+<p>Plot the data</p>
+<pre class="r"><code>PLT_1 &lt;- DAT %&gt;%          ggplot(  aes(x=Y, color=X , fill=X )) +
+  #   geom_histogram(aes(y=..density..), position=&quot;identity&quot;, alpha=0.2 , binwidth= 0.333)+
+  geom_density(alpha=0.2)+
+  scale_color_manual(values=c(&quot;red&quot;, &quot;blue&quot;))+
+  scale_fill_manual(values=c(&quot;red&quot;, &quot;blue&quot;))+
+  labs(x=&quot;Y&quot;, y = &quot;Density&quot;)+
+  theme_classic() +
+  geom_rug() +
+  theme(legend.text = element_text(size = 12, colour = &quot;black&quot;, angle = 0)) +
+  theme(legend.position = c(0.8, 0.8)) +
+  theme(axis.text.x = element_text(size=12), axis.text.y = element_text(size=12))
+
+PLT_1</code></pre>
+<p><img src="/post/2020-11-16-post-2020-11-16/index.en_files/figure-html/C-1.png" width="672" /></p>
+<p><img src="/post/2020-11-16-post-2020-11-16/index.en_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<pre class="r"><code>PLT_1</code></pre>
+<div class="figure"><span id="fig:orange-tree-fig"></span>
+<img src="/post/2020-11-16-post-2020-11-16/index.en_files/figure-html/orange-tree-fig-1.png" alt="Growth of orange trees" width="672" />
+<p class="caption">
+Figure 1: Growth of orange trees
+</p>
+</div>
+</div>

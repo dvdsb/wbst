@@ -1,5 +1,5 @@
 ---
-bio: 
+bio: My research interests include distributed robotics, mobile computing and programmable matter.
 education:
   courses:
   - course: PhD in Statistics
@@ -13,14 +13,14 @@ interests:
 - Causal inference
 - Clinical prediction models
 organizations:
-- name: Goteborg University, Sweden
+- name: Goteborg University
   url: https://www.gu.se/
 role: Associate Professor of Epidemiology
 
 social:
-#- icon: envelope
-#  icon_pack: fas
-#  link: david.bock@gu.se
+- icon: envelope
+  icon_pack: fas
+  link: /#contact
 - icon: twitter
   icon_pack: fab
   link: https://twitter.com/DavidBo28287340 
@@ -30,21 +30,16 @@ social:
 - icon: github
   icon_pack: fab
   link: https://github.com/dvdsb
-- icon: linkedin
-  icon_pack: fab
-  link: https://www.linkedin.com/
+#- icon: linkedin
+#  icon_pack: fab
+#  link: https://www.linkedin.com/
 superuser: true
 title: David Bock 
 user_groups:
 - Principal Investigators
 ---
 
-I am biostatistician and associate professor of epidemiology with more than 15 years of postgraduate experience in various roles both within academia and the pharmaceutical industry.                                                  
 
-I can be reached by david.bock@gu.se
+I am biostatistician and associate professor of epidemiology with 15 years of postgraduate experience in various roles both within academia and the pharmaceutical industry. 
 
-
-
- Download my {{< staticref "media/CV_200921.pdf" "newtab" >}}CV{{< /staticref >}}.
- 
-
+{{< icon name="download" pack="fas" >}} Download my {{< staticref "media/CV David Bock  200921.pdf" "newtab" >}}CV{{< /staticref >}}.
